@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ITO3uIXXzvk4Y87PPq7c228VyfWliSG7oaC7L+B1U8PR2W8eSGsF31eUj1u55gnFOLA8k/yQ3DoqAqxNcirbYQ==",
+  "success": true,
+  "projectFilePath": "C:\\Dev\\ProjetinhoFelas\\BaseApi\\CleanArch.BaseApi\\src\\Core\\CleanArch.BaseApi.Domain\\CleanArch.BaseApi.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dhiul\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\dhiul\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

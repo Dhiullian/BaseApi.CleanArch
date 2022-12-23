@@ -8,10 +8,11 @@
     }
   },
   "profiles": {
-    "BombaApi": {
+    "CleanArch.BaseApi.Api": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
+      "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7099;http://localhost:5099",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

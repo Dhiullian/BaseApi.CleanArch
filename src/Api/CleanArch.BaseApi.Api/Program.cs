@@ -1,3 +1,4 @@
+using CleanArch.BaseApi.Api.Configurations;
 using CleanArch.BaseApi.Application;
 using CleanArch.BaseApi.Infrastructure;
 using CleanArch.BaseApi.Persistence;
@@ -15,6 +16,8 @@ builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddPersistenceServices(builder.Configuration);
 builder.Services.AddControllers();
+//builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerConfiguration();
 
 var app = builder.Build();
 
@@ -37,7 +40,7 @@ app.UseCors(c =>
     c.AllowAnyMethod();
     c.AllowAnyOrigin();
 });
-
+app.UseSwaggerSetup();
 
 
 app.Run();

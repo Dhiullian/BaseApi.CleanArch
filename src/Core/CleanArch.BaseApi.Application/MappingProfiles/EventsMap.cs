@@ -11,9 +11,11 @@ namespace CleanArch.BaseApi.Application.MappingProfiles
         public EventsMap()
         {
             CreateMap<Event, EventListVm>().ReverseMap();
-            CreateMap<Event, EventDetailVm>().ReverseMap();
             CreateMap<Event, CreateEventCommand>().ReverseMap();
             CreateMap<Event, UpdateEventCommand>().ReverseMap();
+            CreateMap<Event, EventDetailVm>().ReverseMap();
+            CreateMap<Event, CategoryEventDto>().ReverseMap();
+            CreateMap<Event, EventExportDto>().ReverseMap();
         }
     }
 }

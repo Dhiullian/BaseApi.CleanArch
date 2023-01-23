@@ -38,7 +38,7 @@ namespace CleanArch.BaseApi.API.IntegrationTests.Base
                     }
                 };
             });
-            return CreateHost(builder);
+            return base.CreateHost(builder);
         }
 
         public HttpClient GetAnonymousClient()

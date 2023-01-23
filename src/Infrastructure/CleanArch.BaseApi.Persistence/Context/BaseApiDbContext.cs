@@ -1,4 +1,5 @@
-﻿using CleanArch.BaseApi.Domain.Entities;
+﻿using CleanArch.BaseApi.Application.Interfaces;
+using CleanArch.BaseApi.Domain.Entities;
 using CleanArch.BaseApi.Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,7 +7,7 @@ namespace CleanArch.BaseApi.Persistence.Context
 {
     public class BaseApiDbContext : DbContext
     {
-        //private readonly ILoggedInUserService _loggedInUserService;
+        private readonly ILoggedInUserService _loggedInUserService;
 
         public DbSet<Event> Events { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -17,11 +18,11 @@ namespace CleanArch.BaseApi.Persistence.Context
         {
         }
 
-        //public BaseApiDbContext(DbContextOptions<BaseApiDbContext> options, ILoggedInUserService loggedInUserService)
-        //    : base(options)
-        //{
-        //    _loggedInUserService = loggedInUserService;
-        //}
+        public BaseApiDbContext(DbContextOptions<BaseApiDbContext> options, ILoggedInUserService loggedInUserService)
+            : base(options)
+        {
+            _loggedInUserService = loggedInUserService;
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -215,11 +216,11 @@ namespace CleanArch.BaseApi.Persistence.Context
                 {
                     case EntityState.Added:
                         entry.Entity.CreatedDate = DateTime.Now;
-                        //entry.Entity.CreatedBy = _loggedInUserService.UserId;
+                        entry.Entity.CreatedBy = _loggedInUserService.UserId;
                         break;
                     case EntityState.Modified:
                         entry.Entity.LastModifiedDate = DateTime.Now;
-                        //entry.Entity.LastModifiedBy = _loggedInUserService.UserId;
+                        entry.Entity.LastModifiedBy = _loggedInUserService.UserId;
                         break;
                 }
             }

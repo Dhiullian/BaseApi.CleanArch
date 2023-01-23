@@ -3,8 +3,6 @@ using CleanArch.BaseApi.Application.Feature.Command.Event;
 using CleanArch.BaseApi.Application.Interfaces.Persistence;
 using CleanArch.BaseApi.Domain.Entities;
 using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace CleanArch.BaseApi.Application.Feature.CommandHanddlers.Events
 {

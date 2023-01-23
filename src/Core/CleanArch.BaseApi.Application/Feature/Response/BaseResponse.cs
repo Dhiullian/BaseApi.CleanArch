@@ -12,16 +12,17 @@ namespace CleanArch.BaseApi.Application.Feature.Response
         {
             Success = true;
         }
-        public BaseResponse(string message = null)
+        public BaseResponse(string message = "")
         {
             Success = true;
             Message = message;
         }
 
-        public BaseResponse(string message, bool success)
+        public BaseResponse(bool success, string message = "" )
         {
             Success = success;
             Message = message;
+            ValidationErrors = new List<string>();
         }
     }
 }

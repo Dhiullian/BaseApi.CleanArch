@@ -33,7 +33,6 @@ namespace CleanArch.BaseApi.Application.Feature.CommandHanddlers.Categories
             if (validationResult.Errors.Count > 0)
             {
                 createCategoryCommandResponse.Success = false;
-                createCategoryCommandResponse.ValidationErrors = new List<string>();
                 foreach (var error in validationResult.Errors)
                 {
                     createCategoryCommandResponse.ValidationErrors.Add(error.ErrorMessage);

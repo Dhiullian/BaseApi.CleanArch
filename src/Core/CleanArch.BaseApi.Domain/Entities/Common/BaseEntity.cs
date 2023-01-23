@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CleanArch.BaseApi.Domain.Entities.Common
+﻿namespace CleanArch.BaseApi.Domain.Entities.Common
 {
     public class BaseEntity
     {

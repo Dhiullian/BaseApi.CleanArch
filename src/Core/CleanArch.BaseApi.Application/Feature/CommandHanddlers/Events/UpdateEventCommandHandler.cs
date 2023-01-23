@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CleanArch.BaseApi.Application.Exceptions;
 using CleanArch.BaseApi.Application.Feature.Command.Event;
 using CleanArch.BaseApi.Application.Interfaces.Persistence;
 using CleanArch.BaseApi.Domain.Entities;
@@ -23,6 +24,17 @@ namespace CleanArch.BaseApi.Application.Feature.CommandHanddlers.Events
         {
 
             var eventToUpdate = await _eventRepository.GetByIdAsync(request.EventId);
+
+            if (eventToUpdate == null)
+            {
+                throw new NotFoundException(nameof(Event), request.EventId);
+            }
+
+            var validator = new UpdateEventCommandValidator();
+            var validationResult = await validator.ValidateAsync(request);
+
+            if (validationResult.Errors.Count > 0)
+                throw new ValidationException(validationResult);
 
             _mapper.Map(request, eventToUpdate, typeof(UpdateEventCommand), typeof(Event));
 

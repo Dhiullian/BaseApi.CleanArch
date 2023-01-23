@@ -1,16 +1,16 @@
 ﻿using CleanArch.BaseApi.Application.Interfaces.Infrastructure;
 using CleanArch.BaseApi.Application.ServiceModel.Mail;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using SendGrid.Helpers.Mail;
 using SendGrid;
-using System.Threading.Tasks;
+using SendGrid.Helpers.Mail;
 
 namespace CleanArch.BaseApi.Infrastructure.MailService
 {
     public class EmailService : IEmailService
     {
         public EmailSettings _emailSettings { get; }
-        //public ILogger<EmailService> _logger { get; }
+        public ILogger<EmailService> _logger { get; }
 
         public EmailService(IOptions<EmailSettings> mailSettings)
         {
@@ -34,12 +34,12 @@ namespace CleanArch.BaseApi.Infrastructure.MailService
             var sendGridMessage = MailHelper.CreateSingleEmail(from, to, subject, emailBody, emailBody);
             var response = await client.SendEmailAsync(sendGridMessage);
 
-            //_logger.LogInformation("Email sent");
+            _logger.LogInformation("Email sent");
 
             if (response.StatusCode == System.Net.HttpStatusCode.Accepted || response.StatusCode == System.Net.HttpStatusCode.OK)
                 return true;
 
-            //_logger.LogError("Email sending failed");
+            _logger.LogError("Email sending failed");
 
             return false;
         }

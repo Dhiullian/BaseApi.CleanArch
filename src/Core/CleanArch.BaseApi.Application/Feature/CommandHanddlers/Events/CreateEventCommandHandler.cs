@@ -6,9 +6,7 @@ using CleanArch.BaseApi.Application.Interfaces.Persistence;
 using CleanArch.BaseApi.Application.ServiceModel.Mail;
 using CleanArch.BaseApi.Domain.Entities;
 using MediatR;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace CleanArch.BaseApi.Application.Feature.CommandHanddlers.Events
 {
@@ -17,14 +15,15 @@ namespace CleanArch.BaseApi.Application.Feature.CommandHanddlers.Events
         private readonly IEventRepository _eventRepository;
         private readonly IMapper _mapper;
         private readonly IEmailService _emailService;
+        private readonly ILogger<CreateEventCommandHandler> _logger;
 
-
-
-        public CreateEventCommandHandler(IMapper mapper, IEventRepository eventRepository, IEmailService emailService)
+        public CreateEventCommandHandler(IMapper mapper, IEventRepository eventRepository, IEmailService emailService, 
+            ILogger<CreateEventCommandHandler> logger)
         {
             _mapper = mapper;
             _eventRepository = eventRepository;
             _emailService = emailService;
+            _logger = logger;
         }
 
         public async Task<Guid> Handle(CreateEventCommand request, CancellationToken cancellationToken)
@@ -49,7 +48,7 @@ namespace CleanArch.BaseApi.Application.Feature.CommandHanddlers.Events
             catch (Exception ex)
             {
                 //this shouldn't stop the API from doing else so this can be logged
-                //_logger.LogError($"Mailing about event {@event.EventId} failed due to an error with the mail service: {ex.Message}");
+                _logger.LogError($"Mailing about event {@event.EventId} failed due to an error with the mail service: {ex.Message}");
             }
 
             return @event.EventId;

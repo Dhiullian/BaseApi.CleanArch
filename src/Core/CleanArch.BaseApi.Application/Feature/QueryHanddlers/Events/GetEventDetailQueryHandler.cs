@@ -2,10 +2,7 @@
 using CleanArch.BaseApi.Application.Feature.Query.Events;
 using CleanArch.BaseApi.Application.Feature.ViewModels.Events;
 using CleanArch.BaseApi.Application.Interfaces.Persistence;
-using CleanArch.BaseApi.Domain.Entities;
 using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace CleanArch.BaseApi.Application.Feature.QueryHanddlers.Events
 {

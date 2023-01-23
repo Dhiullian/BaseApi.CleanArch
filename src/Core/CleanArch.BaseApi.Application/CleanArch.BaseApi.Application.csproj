@@ -22,10 +22,7 @@
   <ItemGroup>
     <Folder Include="Feature\CommandHanddlers\Orders\" />
     <Folder Include="Feature\Command\Orders\" />
-    <Folder Include="Feature\QueryHanddlers\Orders\" />
-    <Folder Include="Feature\Query\Orders\" />
     <Folder Include="Feature\Validations\Query\" />
-    <Folder Include="Feature\ViewModels\Orders\" />
   </ItemGroup>
 
 </Project>

@@ -13,37 +13,38 @@ namespace CleanArch.BaseApi.Api.Configurations
                 s.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "BaseApi",
-                    Description = "BaseApi Swagger surface",
+                    Title = "CleanArch BaseApi",
                     Contact = new OpenApiContact { Name = "Dhiullian Santos", Email = "dhiullian7seven@gmail.com", Url = new Uri("https://www.linkedin.com/in/dhiullian-santos/") },
                     //License = new OpenApiLicense { Name = "MIT", Url = new Uri("https://github.com/EduardoPires/EquinoxProject/blob/master/LICENSE") }
                 });
 
-                //s.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                //{
-                //    Description = "Input the JWT like: Bearer {your token}",
-                //    Name = "Authorization",
-                //    Scheme = "Bearer",
-                //    BearerFormat = "JWT",
-                //    In = ParameterLocation.Header,
-                //    Type = SecuritySchemeType.ApiKey
-                //});
+                s.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "Input the JWT like: Bearer {your token}",
+                    Name = "Authorization",
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
+                });
 
-                //s.AddSecurityRequirement(new OpenApiSecurityRequirement
-                //{
-                //    {
-                //        new OpenApiSecurityScheme
-                //        {
-                //            Reference = new OpenApiReference
-                //            {
-                //                Type = ReferenceType.SecurityScheme,
-                //                Id = "Bearer"
-                //            }
-                //        },
-                //        new string[] {}
-                //    }
-                //});
-
+                s.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            },
+                            Scheme = "oauth2",
+                            Name = "Bearer",
+                            In = ParameterLocation.Header
+                        },
+                        new string[] {}
+                    }
+                });
             });
         }
 

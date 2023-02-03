@@ -8,11 +8,11 @@
 
   <ItemGroup>
 	<PackageReference Include="MediatR" Version="11.1.0" />
-	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.10">
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.13">
 		<PrivateAssets>all</PrivateAssets>
 		<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	</PackageReference>
-	<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10">
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.13">
 		<PrivateAssets>all</PrivateAssets>
 		<IncludeAssets>runtime; build; native;C contentfiles; analyzers; buildtransitive</IncludeAssets>
 	</PackageReference>
@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\CleanArch.BaseApi.Application\CleanArch.BaseApi.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\CleanArch.BaseApi.Identity\CleanArch.BaseApi.Identity.csproj" />
     <ProjectReference Include="..\..\Infrastructure\CleanArch.BaseApi.Infrastructure\CleanArch.BaseApi.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Infrastructure\CleanArch.BaseApi.Persistence\CleanArch.BaseApi.Persistence.csproj" />
   </ItemGroup>

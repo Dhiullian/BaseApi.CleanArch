@@ -1,4 +1,5 @@
-﻿using CleanArch.BaseApi.Application.Feature.Command.Event;
+﻿using CleanArch.BaseApi.Api.Utils;
+using CleanArch.BaseApi.Application.Feature.Command.Event;
 using CleanArch.BaseApi.Application.Feature.Query.Events;
 using CleanArch.BaseApi.Application.Feature.ViewModels.Events;
 using MediatR;
@@ -64,7 +65,7 @@ namespace CleanArch.BaseApi.Api.Controllers
         }
 
         [HttpGet("export", Name = "ExportEvents")]
-        //[FileResultContentType("text/csv")]
+        [FileResultContentType("text/csv")]
         public async Task<FileResult> ExportEvents()
         {
             var fileDto = await _mediator.Send(new GetEventsExportQuery());

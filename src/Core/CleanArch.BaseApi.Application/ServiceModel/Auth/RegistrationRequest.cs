@@ -20,6 +20,8 @@ namespace CleanArch.BaseApi.Application.ServiceModel.Auth
 
         [Required]
         [MinLength(6)]
+        [RegularExpression("^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+~\\-=?<>]).*$", 
+            ErrorMessage = "Your password must have at least one uppercase letter, number and special character")]
         public string Password { get; set; }
     }
 }
